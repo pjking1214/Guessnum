@@ -6,7 +6,8 @@
 //输入采用二分算法时，能够快速得到随机数，时间复杂度log2n;
 //2019-9-2
 int main()
-{
+{   //增加猜测次数
+    int totalnum=0 ;
     //初始化随机数
 	int randnum;
 	srand((unsigned)time(NULL));
@@ -15,6 +16,7 @@ int main()
 	int innum=0;
 	printf("请输入要查找的数字");
 	scanf("%d",&innum);
+	totalnum++;
 	//只要用户输入的数和随机数不一致，就进入循环，进行判断，并给予提示大或小，并要求重新输入
 	while(randnum!=innum)
 	{
@@ -22,13 +24,15 @@ int main()
 		{
 			printf("小了，请再次输入要查找的数字");
 			scanf("%d",&innum);
+			totalnum++;
 		}
 		else
 		{
 			printf("大了，请再次输入要查找的数字");
 			scanf("%d",&innum);
+			totalnum++;
 		}
 	}
-	printf("猜对了！随机数是:%d",randnum);
+	printf("猜对了！随机数是:%d,你一共猜了%d次",randnum,totalnum);
 	return 0;
 }
